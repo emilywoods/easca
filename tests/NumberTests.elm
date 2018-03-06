@@ -7,14 +7,10 @@ import Number
 suite : Test
 suite =
     describe "The Number module"
-        [ describe "Number is assigned" 
+        [ describe "number"
             [ test "It assigns an integer" <|
                 \_ ->
-                    let
-                        value =
-                            2
-                    in
-                        Expect.equal { value = 2 } (Number.number value)
+                        Expect.equal { value = 2 } (Number.number 2)
 
             , test "It assigns a float" <|
                 \_ ->
@@ -22,5 +18,10 @@ suite =
                         |> Number.number
                         |> Expect.equal { value = 2.0 }
 
+            ],
+         describe "to_s" 
+            [ test "converts to string" <|
+                \_ ->
+                        Expect.equal "2" (Number.to_s 2)
             ]
         ]

@@ -5,4 +5,8 @@ multiply lhs rhs =
   , right = rhs
   }
 
+to_s lhs rhs =
+  toString lhs ++ " * " ++ toString rhs
+
+
 
