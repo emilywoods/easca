@@ -5,3 +5,6 @@ number val =
 
 to_s val =
   toString val
+
+is_reducible =
+  False

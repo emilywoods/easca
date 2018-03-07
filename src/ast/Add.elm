@@ -7,3 +7,6 @@ add lhs rhs =
 
 to_s lhs rhs =
   toString lhs ++ " + " ++ toString rhs
+
+is_reducible =
+  True

@@ -21,5 +21,30 @@ suite =
                 \_ ->  Expect.equal "2 * 4" (Multiply.to_s 2 4 )
 
             ]
-        
+          , describe "reducible"
+              [ test "Is reducible" <|
+                  \_ ->  Expect.equal True (Multiply.is_reducible)
+
+              ]
+              {--, describe "reduce"
+              [ test "fully reduced" <|
+                  \_ ->  
+                    let
+                        x =
+                            Number.number 2
+                        y =
+                            Number.number 4
+                    in
+                        Expect.equal 6 ( Multiply.reduce x y )
+
+              , test "It assigns a left and right value" <|
+                \_ ->
+                    let
+                        x =
+                            Number.number 2
+                        y =
+                            Number.number 4
+                    in
+                        Expect.equal { left = { value = 2 }, right = { value = 4 } } ( Multiply.multiply x y )
+                        --}
         ]

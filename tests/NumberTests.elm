@@ -14,14 +14,16 @@ suite =
 
             , test "It assigns a float" <|
                 \_ ->
-                    2.0
-                        |> Number.number
-                        |> Expect.equal { value = 2.0 }
-
+                        Expect.equal { value = 2.0 } (Number.number 2.0)
             ],
          describe "to_s" 
             [ test "converts to string" <|
                 \_ ->
                         Expect.equal "2" (Number.to_s 2)
             ]
+          , describe "reducible"
+              [ test "Is reducible" <|
+                  \_ ->  Expect.equal False (Number.is_reducible)
+
+              ]
         ]
