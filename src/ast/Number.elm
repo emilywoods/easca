@@ -9,6 +9,6 @@ to_s val =
 is_reducible =
   False
 
-reduce : number 
+reduce : number -> number
 reduce input =
-  ""
+  input

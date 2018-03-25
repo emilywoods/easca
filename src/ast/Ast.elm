@@ -5,12 +5,6 @@ import Multiply
 import Add
 
 reduce ast env =
-  :nothing
+   env
 
-is_reducible expression =
-  case expression of
-    Number -> false
-    Add -> true
-    Multiply -> true
-    _ -> false
 
