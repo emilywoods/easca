@@ -1,6 +1,6 @@
 module Multiply exposing (..)
 
-multiply lhs rhs = 
+new lhs rhs =
   { left = lhs
   , right = rhs
   }

@@ -1,6 +1,6 @@
 module Number exposing (..)
 
-number val = 
+new val =
   { value = val }
 
 to_s val =
@@ -8,3 +8,7 @@ to_s val =
 
 is_reducible =
   False
+
+reduce : number 
+reduce input =
+  ""

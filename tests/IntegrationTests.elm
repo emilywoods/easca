@@ -14,11 +14,11 @@ suite =
                 \_ ->
                     let
                         x =
-                            Number.number 2
+                            Number.new 2
                         y =
-                            Number.number 4
+                            Number.new 4
                     in
-                        Expect.equal { left = { value = 2 }, right = { value = 4 } } ( Multiply.multiply x y )
+                        Expect.equal { left = { value = 2 }, right = { value = 4 } } ( Multiply.new x y )
 
 
             ],
@@ -27,11 +27,11 @@ suite =
                  \_ ->
                      let
                          x =
-                             Number.number 2
+                             Number.new 2
                          y =
-                             Number.number 4
+                             Number.new 4
                      in
-                         Expect.equal { left = { value = 2 }, right = { value = 4 } } ( Add.add x y )
+                         Expect.equal { left = { value = 2 }, right = { value = 4 } } ( Add.new x y )
 
 
              ]

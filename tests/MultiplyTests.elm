@@ -10,10 +10,10 @@ suite =
      describe "The Multiply module"
         [ describe "multiply"
             [ test "It assigns a left and right value" <|
-                \_ ->  Expect.equal { left = 2, right = 4 } (Multiply.multiply 2 4 )
+                \_ ->  Expect.equal { left = 2, right = 4 } (Multiply.new 2 4 )
 
             , test "It assigns a left and right floating point value" <|
-                \_ ->  Expect.equal { left = 2.0, right = 4.0 } (Multiply.multiply 2.0 4.0 )
+                \_ ->  Expect.equal { left = 2.0, right = 4.0 } (Multiply.new 2.0 4.0 )
 
             ]
         , describe "to_s" 

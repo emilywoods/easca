@@ -10,11 +10,11 @@ suite =
         [ describe "number"
             [ test "It assigns an integer" <|
                 \_ ->
-                        Expect.equal { value = 2 } (Number.number 2)
+                        Expect.equal { value = 2 } (Number.new 2)
 
             , test "It assigns a float" <|
                 \_ ->
-                        Expect.equal { value = 2.0 } (Number.number 2.0)
+                        Expect.equal { value = 2.0 } (Number.new 2.0)
             ],
          describe "to_s" 
             [ test "converts to string" <|
