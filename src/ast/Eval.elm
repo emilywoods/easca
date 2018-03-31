@@ -9,4 +9,8 @@ eval exp env =
     Num num -> num
     Add exp1 exp2 ->
         (eval exp1 env) + (eval exp2 env)
-    _ -> 0
+    Subtract exp1 exp2 ->
+        (eval exp1 env) - (eval exp2 env)
+    Multiply exp1 exp2 ->
+        (eval exp1 env) * (eval exp2 env)
+
