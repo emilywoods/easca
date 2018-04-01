@@ -22,4 +22,6 @@ suite =
             , test "It evaluates multiplication" <|
                 \_ ->
                     Expect.equal 6 (Eval.eval (Multiply (Num 2) (Num 3) ) zero)
+            , test "to_s" <|
+                  \_ ->  Expect.equal "2" (Eval.to_s (Num 2))
             ]
