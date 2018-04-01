@@ -1,4 +1,4 @@
-module Parser exposing (..)
+module Parser exposing (parse)
 
 import Exp exposing (Exp(..))
 import Regex
@@ -7,11 +7,16 @@ import String
 
 type TokenType
     = Integer
+    | Fl -- Float
     | NoMatch
 
 
 regexInt =
-    Regex.regex "\\d+"
+    Regex.regex "^\\d+$"
+
+
+regexFl =
+    Regex.regex "^\\d+.\\d+$"
 
 
 parse : String -> List Exp
@@ -26,18 +31,23 @@ tokenize source =
 
 
 matchHelper : String -> TokenType
-matchHelper s =
-    if Regex.contains regexInt s then
+matchHelper str =
+    if Regex.contains regexInt str then
         Integer
+    else if Regex.contains regexFl str then
+        Fl
     else
         NoMatch
 
 
 parseToken : String -> Exp
-parseToken string =
-    case matchHelper string of
+parseToken str =
+    case matchHelper str of
         Integer ->
-            Num (String.toInt string |> Result.withDefault 0)
+            Int (String.toInt str |> Result.withDefault 0)
+
+        Fl ->
+            Float (String.toFloat str |> Result.withDefault 0.0)
 
         NoMatch ->
-            Num 0
+            Int 1

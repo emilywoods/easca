@@ -2,7 +2,8 @@ module Exp exposing (Exp(..))
 
 
 type Exp
-    = Num Int
+    = Int Int
+    | Float Float
     | Add Exp Exp
     | Subtract Exp Exp
     | Multiply Exp Exp

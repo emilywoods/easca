@@ -16,6 +16,6 @@ import Parser exposing (..)
 
 interpret : String -> String
 interpret input =
-    Machine.reduce
-        Parser.parse
-        input
+    --    Machine.reduce
+    --        toString Parser.parse
+    input
