@@ -1,10 +1,9 @@
 module Ast exposing (..)
 
-import Number
-import Multiply
 import Add
+import Multiply
+import Number
+
 
 reduce ast env =
-   env
-
-
+    env

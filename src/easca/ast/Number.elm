@@ -1,14 +1,18 @@
 module Number exposing (..)
 
+
 new val =
-  { value = val }
+    { value = val }
+
 
 to_s val =
-  toString val
+    toString val
+
 
 is_reducible =
-  False
+    False
+
 
 reduce : number -> number
 reduce input =
-  input
+    input
