@@ -8,6 +8,7 @@ import String
 type TokenType
     = Integer
     | Fl -- Float
+    | Str -- String
     | NoMatch
 
 
@@ -19,6 +20,10 @@ regexFl =
     Regex.regex "^\\d+.\\d+$"
 
 
+regexStr =
+    Regex.regex "\\w+"
+
+
 parse : String -> List Exp
 parse source =
     List.map
@@ -27,7 +32,7 @@ parse source =
 
 
 tokenize source =
-    String.split " " source
+    String.words source
 
 
 matchHelper : String -> TokenType
@@ -36,6 +41,8 @@ matchHelper str =
         Integer
     else if Regex.contains regexFl str then
         Fl
+    else if Regex.contains regexStr str then
+        Str
     else
         NoMatch
 
@@ -48,6 +55,9 @@ parseToken str =
 
         Fl ->
             Float (String.toFloat str |> Result.withDefault 0.0)
+
+        Str ->
+            String str
 
         NoMatch ->
             Int 1
