@@ -2,7 +2,7 @@ module EvalTests exposing (..)
 
 import Env exposing (..)
 import Eval
-import Exp exposing (Exp(..))
+import Exp exposing (Exp(..), Prog(..))
 import Expect exposing (Expectation)
 import Test exposing (..)
 
@@ -49,8 +49,13 @@ suite =
             \_ -> Expect.equal 3 (Eval.eval (Return (Int 3) ) zero)
         , test "It evaluates Let" <|
             \_ -> Expect.equal 3 (Eval.eval (Let (String "x") (Int 3)) zero)
+
+        --- Programs
+        , test "If" <|
+            \_ -> Expect.equal 4 (Eval.eval (IfElse (GreaterThanOrEqual (Int 3) (Int 3)) (Int 4)) zero)
         ]
 
 
 -- Tidy tests
 -- Add no op instead of zero
+--

@@ -1,7 +1,7 @@
 module Eval exposing (..)
 
 import Env exposing (..)
-import Exp exposing (Exp(..))
+import Exp exposing (Exp(..), Prog(..))
 
 
 eval : Exp -> Env -> Int
@@ -47,15 +47,25 @@ eval exp env =
             if (eval exp1 env >= eval exp2 env) then 1 else 0
 
 
-        -- Misc? 
+        -- Misc?
         Let str num  ->
             eval num env
 
         Return exp ->
             eval exp env
 
+        IfElse exp outcome ->
+            if (eval exp env) == 1 then (eval outcome env) else 0
         _ ->
             0
+
+--evalProg : Prog -> Env -> Int
+--evalProg prog env =
+--      case prog of
+--        If exp outcome ->
+--            if (eval exp env) == 0 then (eval outcome env) else 0
+--        _ ->
+--            0
 
 
 to_s : Exp -> String

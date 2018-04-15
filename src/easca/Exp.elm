@@ -20,7 +20,10 @@ type Exp
     | GreaterThanOrEqual Exp Exp
     | Equal              Exp Exp
 
+    | IfElse Exp Exp
+
 
 type Prog
-    = IfElse Exp Prog Prog
-    | While Exp Prog
+    = While Exp Prog
+    | For Exp Prog
+    | Func Prog
