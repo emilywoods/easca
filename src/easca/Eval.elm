@@ -7,14 +7,20 @@ import Exp exposing (Exp(..))
 eval : Exp -> Env -> Int
 eval exp env =
     case exp of
+        -- Atoms
         Int exp ->
             exp
 
-        String  str -> (env str)
+        String  str ->
+          (env str)
 
         Boolean bool ->
             if (bool == True) then 1 else 0
 
+        Variable  str ->
+            (env str)
+
+        -- Numeric Ops
         Add exp1 exp2 ->
             eval exp1 env + eval exp2 env
 
@@ -23,6 +29,10 @@ eval exp env =
 
         Multiply exp1 exp2 ->
             eval exp1 env * eval exp2 env
+
+        -- Comparative
+        Equal exp1 exp2 ->
+            if (eval exp1 env == eval exp2 env) then 1 else 0
 
         LessThan exp1 exp2 ->
             if (eval exp1 env < eval exp2 env) then 1 else 0
@@ -35,6 +45,15 @@ eval exp env =
 
         GreaterThanOrEqual exp1 exp2 ->
             if (eval exp1 env >= eval exp2 env) then 1 else 0
+
+
+        -- Misc? 
+        Let str num  ->
+            eval num env
+
+        Return exp ->
+            eval exp env
+
         _ ->
             0
 
