@@ -23,4 +23,21 @@ suite =
                 Expect.equal 6 (Eval.eval (Multiply (Int 2) (Int 3)) zero)
         , test "to_s" <|
             \_ -> Expect.equal "2" (Eval.to_s (Int 2))
+        , test "It evaluates Boolean True" <|
+            \_ ->
+                Expect.equal 1 (Eval.eval (Boolean True) zero)
+        , test "It evaluates Boolean False" <|
+            \_ ->
+                Expect.equal 0 (Eval.eval (Boolean False) zero)
+        , test "It evaluates less than" <|
+            \_ ->
+                Expect.equal 1 (Eval.eval (LessThan (Int 2) (Int 3)) zero)
+        , test "It evaluates less than or equal to" <|
+            \_ -> Expect.equal 1 (Eval.eval (LessThanOrEqual (Int 3) (Int 3)) zero)
+        , test "It evaluates greater than" <|
+            \_ ->
+                Expect.equal 1 (Eval.eval (GreaterThan (Int 3) (Int 2)) zero)
+        , test "It evaluates greater than or equal to" <|
+            \_ -> Expect.equal 0 (Eval.eval (GreaterThanOrEqual (Int 2) (Int 3)) zero)
+
         ]
