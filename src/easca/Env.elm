@@ -8,7 +8,3 @@ type alias Env =
 zero : Env
 zero =
     \input -> 0
-
-
-
---backslash = lambda
